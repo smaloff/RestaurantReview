@@ -1,0 +1,26 @@
+<h1> RestoReviews </h1>
+
+<%= form_for ReviewPost.new, url: '/new_post' do |foobar| %>
+Your Review Goes HERE
+<%= foobar.text_area :stringtext_review %> 
+<br> 
+<br>
+<%= foobar.select(:stars, %w[1-star 2-stars 3-stars 4-stars 5-stars ]) %>
+<br>
+<br>
+<%= foobar.submit 'Enter Review' %>
+
+<h2> These are the reviews, eat at your own risk!</h2>
+
+
+<% end %>
+
+<ul> 
+  <% @review_posts.each do |foobar| %>
+  <li> 
+    <%= foobar.stringtext_review %>
+    <%= foobar.stars %>
+  </li> 
+  <% end %> 
+  
+</ul> 
